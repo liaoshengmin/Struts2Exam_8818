@@ -1,10 +1,11 @@
-com\filter\PermissionFilter.class
 com\action\ShowAction.class
+com\action\DeleteAction.class
+com\film\Customer.class
+com\filter\PermissionFilter.class
 com\service\ConnectionMySql.class
 com\service\JDBCService.class
 com\action\AddAction.class
-com\film\Customer.class
-com\action\DeleteAction.class
+com\action\UpdateAction.class
 com\action\LoginAction.class
 com\action\GetAddressAction.class
 com\hand\LoginAction.class

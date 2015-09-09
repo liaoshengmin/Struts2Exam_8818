@@ -104,7 +104,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     // /login.jsp(17,2) null
     _jspx_th_s_005fform_005f0.setDynamicAttribute(null, "role", new String("form"));
     // /login.jsp(17,2) name = action type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_s_005fform_005f0.setAction("login");
+    _jspx_th_s_005fform_005f0.setAction("Login_login");
     // /login.jsp(17,2) name = method type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_s_005fform_005f0.setMethod("post");
     // /login.jsp(17,2) name = name type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
@@ -122,15 +122,19 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\t\t\t\t<h3>电影租凭管理系统</h3>\r\n");
         out.write("\t\t\t</div>\r\n");
         out.write("\t\t\t<hr>\r\n");
-        out.write("\t\t\t<div  id=\"form_input\">\r\n");
-        out.write("\t\t\t\t<div class=\"col-md-4\">用户名：</div>\r\n");
-        out.write("\t\t\t\t<div class=\"col-md-8\">\r\n");
-        out.write("\t\t\t\t\t<input type=\"text\" name=\"fname\" />\r\n");
+        out.write("\t\t\t<div  id=\"form_input\" class=\"form-horizontal\">\r\n");
+        out.write("\t\t\t  <div class=\"form-group form-group-md\">\r\n");
+        out.write("\t\t\t\t<div class=\"col-md-3\">用户名：</div>\r\n");
+        out.write("\t\t\t\t<div class=\"col-md-6\">\r\n");
+        out.write("\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"fname\" />\r\n");
         out.write("\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t<div class=\"col-md-4\">密码：</div>\r\n");
-        out.write("\t\t\t\t<div class=\"col-md-8\">\r\n");
-        out.write("\t\t\t\t\t<input type=\"text\" name=\"password\" />\r\n");
+        out.write("\t\t\t  </div>\r\n");
+        out.write("\t\t\t  <div class=\"form-group form-group-md\">\r\n");
+        out.write("\t\t\t\t<div class=\"col-md-3\">密码：</div>\r\n");
+        out.write("\t\t\t\t<div class=\"col-md-6\">\r\n");
+        out.write("\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"password\" />\r\n");
         out.write("\t\t\t\t</div>\r\n");
+        out.write("\t\t\t  </div>\r\n");
         out.write("\t\t\t\t<br>\r\n");
         out.write("\t\t\t\t<div class=\"col-md-5\"><input type=\"submit\" class=\"btn btn-info\" value=\"提交\"></div>\r\n");
         out.write("\t\t\t\t\r\n");

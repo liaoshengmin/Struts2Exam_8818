@@ -1,6 +1,7 @@
 package com.action;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 
@@ -9,23 +10,24 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.JDBCService;
 
-public class LoginAction extends ActionSupport {
+public class LoginAction{
 	private String fname;
 	private String password;
 	
-	@Override
-	public String execute() throws Exception {
+
+	public String login(){
 		JDBCService js = new JDBCService();
 		boolean bool = js.login(fname,password);
-		ActionContext act = ActionContext.getContext();
+		Map session = (Map) ActionContext.getContext().getSession();
 		if(bool){
-			act.getSession().put("flag", "login_success");
-			return SUCCESS;
+			session.put("flag", "login_success");
+			session.put("user", fname);
+			return "success";
 
 		}
 		else{
-			act.getSession().put("flag", "login_error");
-			return ERROR;
+			session.put("flag", "login_error");
+			return "error";
 		}
 		
 		

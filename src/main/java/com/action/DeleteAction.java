@@ -1,30 +1,30 @@
 package com.action;
-
-import javax.servlet.RequestDispatcher;
-
-import com.opensymphony.xwork2.ActionSupport;
 import com.service.JDBCService;
 
-public class DeleteAction extends ActionSupport {
+public class DeleteAction{
 
 	JDBCService js = new JDBCService();
-	private int typeid;
+	private int id;
 
-	@Override
-	public String execute() throws Exception {
-		js.delete(typeid);
-		return SUCCESS;
+
+	public String delete(){
+		System.out.println(id);
+		js.delete(id);
+		return "success";
 
 	}
 
-	public int getTypeid() {
-		return typeid;
+
+	public int getId() {
+		return id;
 	}
 
-	public void setTypeid(int typeid) {
-		this.typeid = typeid;
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
+	
 
 
 

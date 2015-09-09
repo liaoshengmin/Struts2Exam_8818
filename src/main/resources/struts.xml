@@ -4,35 +4,39 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="test" namespace="" extends="struts-default">
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.multipart.maxSize" value="1000000" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
 
-		<action name="login" class="com.action.LoginAction" method="execute">
-			<result name="success" type="redirectAction">show</result>
+	<package name="test" namespace="/" extends="struts-default,json-default">
+
+		<action name="show" class="com.action.ShowAction" method="show">
+			<result type="json">
+				<param name="root">list</param>
+			</result>
+		</action>
+
+		<action name="getAddress" class="com.action.GetAddressAction"
+			method="getAddress">
+			<result type="json">
+				<param name="root">list</param>
+			</result>
+		</action>
+		
+
+
+		<action name="*_*" class="com.action.{1}Action" method="{2}">
+			<result name="success">/WEB-INF/jsp/index.jsp</result>
 			<result name="error">/login.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="add">/WEB-INF/jsp/add.jsp</result>
 		</action>
-		
-		<action name="show" class="com.action.ShowAction" method="execute">
-			<result name="success">/index.jsp</result>
-		</action>
-		
-		<action name="getAddress" class="com.action.GetAddressAction" method="execute">
-			<result name="success">/add.jsp</result>
-		</action>
-		
-		<action name="add" class="com.action.AddAction" method="execute">
-			<result name="success" type="redirectAction">show</result>
-		</action>
-		
-		<action name="delete" class="com.action.DeleteAction" method="execute">
-			<result name="success" type="redirectAction">show</result>
-		</action>
-		
+
 
 
 	</package>
 </struts>
 
 <!-- <action name="*_*" class="com.action.{1}" method="{2}"> -->
-<!-- 	<result name="success">/WEB-INF/jsp/success.jsp</result> -->
+<!-- <result name="success">/WEB-INF/jsp/success.jsp</result> -->
 <!-- </action> -->

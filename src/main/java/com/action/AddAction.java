@@ -4,15 +4,14 @@ import com.film.Customer;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.JDBCService;
 
-public class AddAction extends ActionSupport {
+public class AddAction{
 	private String fname;
 	private String lname;
 	private String email;
 	private String addressname;
 	JDBCService js = new JDBCService();
 	
-	@Override
-	public String execute() throws Exception {
+	public String add(){
 		Customer cus = new Customer();
 		cus.setFirst_name(fname);
 		cus.setLast_name(lname);
@@ -20,7 +19,7 @@ public class AddAction extends ActionSupport {
 		
 		int id=js.addressid(addressname);
 		js.add(cus, id);
-		return SUCCESS;
+		return "success";
 	}
 	
 	

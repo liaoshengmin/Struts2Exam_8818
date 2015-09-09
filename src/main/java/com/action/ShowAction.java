@@ -3,19 +3,21 @@ package com.action;
 import java.util.List;
 
 import com.film.Customer;
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 import com.service.JDBCService;
 
-public class ShowAction extends ActionSupport {
+public class ShowAction{
 	JDBCService js = new JDBCService();
-	ActionContext act = ActionContext.getContext();
-	
-	@Override
-	public String execute() throws Exception {
-		List<Customer> list =js.customer();
-		act.getSession().put("list", list);
-		return SUCCESS;
+	public List<Customer> list;
+	public List<Customer> getList() {
+		return list;
+	}
+	public void setList(List<Customer> list) {
+		this.list = list;
+	}
+
+	public String show(){
+		list =js.customer();
+		return "success";
 	}
 
 }

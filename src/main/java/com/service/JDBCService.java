@@ -69,34 +69,6 @@ public class JDBCService {
 	}
 
 
-	//	public JSONArray customer1() {
-	//		// TODO Auto-generated method stub
-	//		String sql = "SELECT first_name,last_name,address,email,customer_id,customer.last_update FROM customer,address WHERE customer.address_id=address.address_id LIMIT 0,100";
-	//		JSONArray json = new JSONArray();
-	//		PreparedStatement preparedStatement;
-	//		try {
-	//			preparedStatement = conn.prepareCall(sql);
-	//			ResultSet resultSet = preparedStatement.executeQuery();
-	//			while(resultSet.next()){
-	//				JSONObject jsonObject = new JSONObject();
-	//				jsonObject.put("first_name", resultSet.getString("first_name"));
-	//				jsonObject.put("last_name", resultSet.getString("last_name"));
-	//				jsonObject.put("address", resultSet.getString("address"));
-	//				jsonObject.put("email", resultSet.getString("email"));
-	//				jsonObject.put("customer_id", resultSet.getString("customer_id"));
-	//				jsonObject.put("last_update", resultSet.getString("last_update"));
-	//				json.add(jsonObject);
-	//			}
-	//			preparedStatement.close();
-	//			return json;
-	//		} catch (SQLException e) {
-	//			// TODO Auto-generated catch block
-	//			e.printStackTrace();
-	//		}
-	//		return null;
-	//	}
-
-
 
 	public void add(Customer cu,int id){
 
@@ -148,38 +120,26 @@ public class JDBCService {
 
 
 	}
+	
+	
+	public void update(Customer cu,int id){
 
-
-	public Customer showOne(int id){
-		ResultSet rs = null;
-		String sql="select first_name,last_name,email,address from customer,address where customer.address_id=address.address_id and film_id=?";
+		String sql="UPDATE customer SET first_name=?,last_name=?,email=?,address_id=? where customer_id=?";
 
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1,id);
-			rs = ps.executeQuery();
-			while(rs.next()){
-				Customer cu = new Customer();
-				cu.setFirst_name(rs.getString("first_name"));
-				cu.setLast_name(rs.getString("last_name"));
-				cu.setEmail(rs.getString("email"));
-				cu.setAddress(rs.getString("address"));
-				rs.close();
-				return cu;
-			}
+			ps.setString(1,cu.getFirst_name());
+			ps.setString(2,cu.getLast_name());
+			ps.setString(3, cu.getEmail());;
+			ps.setInt(4, id);
+			ps.setInt(5, cu.getCustomer_id());
+			ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		try {
-			rs.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-
 	}
+
 
 	public List addressname(){
 		ResultSet rs = null;
@@ -221,6 +181,9 @@ public class JDBCService {
 
 
 	}
+	
+	
+	
 
 
 

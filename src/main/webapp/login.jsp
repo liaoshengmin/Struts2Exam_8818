@@ -14,20 +14,24 @@
 <body id="login_body">
 <p><h1>8818廖声民</h1></p>
 	<div id="login_div_form">
-		<s:form role="form" action="login" method="post" name="LoginForm">
+		<s:form role="form" action="Login_login" method="post" name="LoginForm">
 			<div id="form_text">
 				<h3>电影租凭管理系统</h3>
 			</div>
 			<hr>
-			<div  id="form_input">
-				<div class="col-md-4">用户名：</div>
-				<div class="col-md-8">
-					<input type="text" name="fname" />
+			<div  id="form_input" class="form-horizontal">
+			  <div class="form-group form-group-md">
+				<div class="col-md-3">用户名：</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="fname" />
 				</div>
-				<div class="col-md-4">密码：</div>
-				<div class="col-md-8">
-					<input type="text" name="password" />
+			  </div>
+			  <div class="form-group form-group-md">
+				<div class="col-md-3">密码：</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="password" />
 				</div>
+			  </div>
 				<br>
 				<div class="col-md-5"><input type="submit" class="btn btn-info" value="提交"></div>
 				
